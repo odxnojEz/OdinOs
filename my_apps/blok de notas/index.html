@@ -1,0 +1,46 @@
+Para crear un block de notas básico que permita escribir y darle formato al texto, podemos utilizar HTML, CSS y JavaScript. A continuación te proporciono el código para un block de notas sencillo con funcionalidades básicas de edición de texto.
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        #editor {
+            width: 100%;
+            height: 400px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            background-color: white;
+            margin-top: 10px;
+        }
+        #toolbar button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Block de Notas</h1>
+    <div id="toolbar">
+        <button onclick="formatText('bold')">Negrita</button>
+        <button onclick="formatText('italic')">Cursiva</button>
+        <button onclick="formatText('underline')">Subrayado</button>
+    </div>
+    <div id="editor" contenteditable="true"></div>
+
+    <script>
+        function formatText(command) {
+            document.execCommand(command, false, null);
+        }
+    </script>
+</body>
+</html>

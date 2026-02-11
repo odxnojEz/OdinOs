@@ -1,0 +1,261 @@
+Estructura de proyecto (lo que generará la web):
+- index.html            (UI/Generador - Ponlo en la raíz cuando lo uses en tu servidor)
+- /plantilla
+  - /html
+    - index.html
+  - /css
+    - style.css
+  - /js
+    - app.js
+  - /img
+    - logo.svg
+
+A continuación tienes el contenido de los archivos. Copia cada archivo en su ruta indicada.
+
+1) index.html (página generadora, pónla en la raíz)
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SuperCreator - Generador de apps móviles</title>
+  <style>
+    :root{--accent:#4f46e5}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:#f4f6fb;color:#0f172a}
+    header{background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;padding:20px}
+    .container{max-width:980px;margin:22px auto;padding:18px;background:white;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+    h1{margin:.2rem 0}
+    label{display:block;margin:8px 0 4px;font-weight:600}
+    input[type=text],select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9f2}
+    .row{display:flex;gap:12px}
+    .col{flex:1}
+    button{background:var(--accent);color:white;padding:10px 14px;border:0;border-radius:8px;cursor:pointer}
+    pre{background:#0b1220;color:#dbeafe;padding:12px;border-radius:8px;overflow:auto}
+    footer{font-size:13px;color:#475569;margin-top:14px}
+    .small{font-size:13px;color:#475569}
+  </style>
+  <!-- JSZip & FileSaver (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container" style="background:transparent;box-shadow:none">
+      <h1>SuperCreator</h1>
+      <div class="small">Crea una estructura de app móvil (html, css, js, img) y descárgala en un ZIP desde tu propio móvil.</div>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <label for="appName">Nombre de la aplicación</label>
+    <input id="appName" type="text" placeholder="MiApp" value="MiSuperApp" />
+
+    <div class="row" style="margin-top:12px">
+      <div class="col">
+        <label for="primaryColor">Color principal</label>
+        <input id="primaryColor" type="text" value="#4f46e5" />
+      </div>
+      <div class="col">
+        <label for="pages">Número de páginas (ej: 1)</label>
+        <select id="pages">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;display:flex;gap:8px">
+      <button id="generate">Generar ZIP</button>
+      <button id="preview" style="background:#06b6d4">Ver plantilla en ventana</button>
+    </div>
+
+    <section style="margin-top:18px">
+      <h3>Archivos que se crearán</h3>
+      <pre id="fileTree">
+/html/index.html
+/css/style.css
+/js/app.js
+/img/logo.svg
+      </pre>
+      <div class="small">La estructura generada tendrá carpetas separadas para html, css, js e img.</div>
+    </section>
+
+    <footer>
+      Abre el ZIP en tu móvil y modifica /html/index.html para empezar. Puedes alojar estos archivos en un servidor simple para usarlos como plantilla.
+    </footer>
+  </main>
+
+  <script>
+    // Plantillas (contenido que irá dentro del ZIP)
+    const templateHtml = (appName, color) => `<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>${appName}</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <img src="../img/logo.svg" alt="${appName} logo" class="logo" />
+    <h1>${appName}</h1>
+  </header>
+
+  <main class="app-main">
+    <div class="card">
+      <h2>Bienvenido a ${appName}</h2>
+      <p>Esta es una plantilla mínima generada por SuperCreator. Puedes editar los archivos en css/ y js/ para personalizar tu app.</p>
+      <button id="action">Probar acción</button>
+    </div>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
+`;
+
+    const styleCss = (color) => `:root{--primary:${color}}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:#f7fafc;color:#0f172a}
+.app-header{background:var(--primary);color:#fff;padding:18px;display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px}
+.app-main{padding:20px}
+.card{background:white;border-radius:10px;padding:16px;box-shadow:0 6px 20px rgba(2,6,23,.08);max-width:720px}
+button{background:var(--primary);color:white;border:0;padding:10px 12px;border-radius:8px;cursor:pointer}
+`;
+
+    const appJs = `document.addEventListener('DOMContentLoaded',function(){
+  const btn = document.getElementById('action');
+  if(btn){
+    btn.addEventListener('click',function(){
+      alert('¡Acción de prueba en la app!');
+    });
+  }
+});`;
+
+    const logoSvg = (color) => `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="24" fill="${color}"/>
+  <g transform="translate(26 26)" fill="#fff">
+    <rect x="0" y="0" width="68" height="14" rx="6"></rect>
+    <rect x="0" y="26" width="68" height="14" rx="6"></rect>
+    <rect x="0" y="52" width="68" height="14" rx="6"></rect>
+  </g>
+</svg>`;
+
+    document.getElementById('generate').addEventListener('click', async function(){
+      const appName = (document.getElementById('appName').value || 'MiApp').trim();
+      const color = (document.getElementById('primaryColor').value || '#4f46e5').trim();
+      const pages = parseInt(document.getElementById('pages').value || '1',10);
+
+      const zip = new JSZip();
+
+      // Crear carpetas
+      const folderHtml = zip.folder('html');
+      const folderCss  = zip.folder('css');
+      const folderJs   = zip.folder('js');
+      const folderImg  = zip.folder('img');
+
+      // Agregar html (si hay más páginas se pueden nombrar index2.html...)
+      folderHtml.file('index.html', templateHtml(appName, color));
+      for(let i=2;i<=pages;i++){
+        folderHtml.file('page'+i+'.html', templateHtml(appName + ' - Página ' + i, color));
+      }
+
+      // CSS, JS, IMG
+      folderCss.file('style.css', styleCss(color));
+      folderJs.file('app.js', appJs);
+      folderImg.file('logo.svg', logoSvg(color));
+
+      // Generar ZIP
+      const content = await zip.generateAsync({type:"blob"});
+      saveAs(content, `${appName.replace(/\s+/g,'_')}_supercreator.zip`);
+    });
+
+    document.getElementById('preview').addEventListener('click', function(){
+      // Abrir plantilla en nueva ventana usando blob
+      const appName = (document.getElementById('appName').value || 'MiApp').trim();
+      const color = (document.getElementById('primaryColor').value || '#4f46e5').trim();
+
+      // Construir HTML y abrir
+      const html = templateHtml(appName,color)
+        .replace('../css/style.css', 'data:text/css,' + encodeURIComponent(styleCss(color)))
+        .replace('../js/app.js', 'data:text/javascript,' + encodeURIComponent(appJs))
+        .replace('../img/logo.svg', 'data:image/svg+xml;utf8,' + encodeURIComponent(logoSvg(color)));
+
+      const w = window.open();
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
+    });
+  </script>
+</body>
+</html>
+
+
+2) Plantilla: /plantilla/html/index.html (ejemplo de la app generada — mismo contenido que el template)
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiSuperApp</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <img src="../img/logo.svg" alt="MiSuperApp logo" class="logo" />
+    <h1>MiSuperApp</h1>
+  </header>
+
+  <main class="app-main">
+    <div class="card">
+      <h2>Bienvenido a MiSuperApp</h2>
+      <p>Esta es una plantilla mínima generada por SuperCreator. Puedes editar los archivos en css/ y js/ para personalizar tu app.</p>
+      <button id="action">Probar acción</button>
+    </div>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
+
+
+3) Plantilla: /plantilla/css/style.css
+css
+:root{--primary:#4f46e5}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:#f7fafc;color:#0f172a}
+.app-header{background:var(--primary);color:#fff;padding:18px;display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px}
+.app-main{padding:20px}
+.card{background:white;border-radius:10px;padding:16px;box-shadow:0 6px 20px rgba(2,6,23,.08);max-width:720px}
+button{background:var(--primary);color:white;border:0;padding:10px 12px;border-radius:8px;cursor:pointer}
+
+
+4) Plantilla: /plantilla/js/app.js
+js
+document.addEventListener('DOMContentLoaded',function(){
+  const btn = document.getElementById('action');
+  if(btn){
+    btn.addEventListener('click',function(){
+      alert('¡Acción de prueba en la app!');
+    });
+  }
+});
+
+
+5) Plantilla: /plantilla/img/logo.svg
+svg
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="24" fill="#4f46e5"/>
+  <g transform="translate(26 26)" fill="#fff">
+    <rect x="0" y="0" width="68" height="14" rx="6"></rect>
+    <rect x="0" y="26" width="68" height="14" rx="6"></rect>
+    <rect x="0" y="52" width="68" height="14" rx="6"></rect>
+  </g>
+</svg>

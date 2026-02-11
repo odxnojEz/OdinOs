@@ -1,0 +1,14 @@
+.vscode/
+config.json
+.env
+
+
+__pycache__/
+*.pyc
+totalcode.txt
+temp_exports/
+temp_imports/
+.visual_list/
+
+
+backups/
