@@ -6,6 +6,23 @@
 
 ---
 
+## 1. Environment Setup (Android)
+Before touching the code, you need the base tools on your mobile device:
+
+* **Install Termux:** Download it preferably from F-Droid or its official GitHub (the Google Play version is obsolete).
+* **Install Termux:API:** Download the Termux:API extension (this allows the AI to control phone functions).
+
+Open Termux and update everything is up to date before you begin:
+
+```bash
+pkg update && pkg upgrade
+```
+
+---
+
+## 2. Initial Configuration
+Open Termux and make sure everything is updated before starting:
+
 ## 🚀 Quick Install
 
 Run this command in Termux to set up everything automatically (dependencies, permissions, and alias):
@@ -39,6 +56,12 @@ Generate App: Describe what you want, and acornix will build it.
 Manage Plugins: Install or update system extensions.
 
 Launch Server: Preview your generated apps on your local network.
+
+if you have a problem with the server, reebot the server:
+```bash
+pkill -f "python -m http.server"
+python -m http.server 8080
+```
 
 # 🌳 acornix: The AI-Powered OS for Termux
 > "Transform your mobile terminal into a neural development hub."
