@@ -85,7 +85,7 @@ def main_menu():
         plugins = load_plugins()
         
         print("==========================================")
-        print("      🚀 SUPERCREATOR AGENT OS           ")
+        print("      🚀 ACORNIX          ")
         print("==========================================")
         
         mapping = {}
