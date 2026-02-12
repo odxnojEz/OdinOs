@@ -9,8 +9,9 @@
 ## 1. Environment Setup (Android)
 Before touching the code, you need the base tools on your mobile device:
 
-* **Install Termux:** Download it preferably from F-Droid or its official GitHub (the Google Play version is obsolete).
-* **Install Termux:API:** Download the Termux:API extension (this allows the AI to control phone functions).
+* **Install Termux:** Download it preferably from F-Droid or its official GitHub (the Google Play version is obsolete). [Termux](https://f-droid.org/es/packages/com.termux/)
+* **Install Termux:API:** Download the Termux:API extension (this allows the AI to control phone functions). [Termux:API](https://f-droid.org/es/packages/com.termux/)
+
 
 Open Termux and update everything is up to date before you begin:
 
