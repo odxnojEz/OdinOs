@@ -6,6 +6,16 @@
 
 ---
 
+
+
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/d38be77a-21ba-425e-a328-b9d813e414e6" width="80%" controls></video>
+</div>
+
+---
+
+
 ## 1. Environment Setup (Android)
 Before touching the code, you need the base tools on your mobile device:
 
@@ -82,10 +92,20 @@ You can create whatever you want and share it with whoever you want. The system 
 <br />
 
 ### 📸 Showcase
+*Create a simple game 3d aeroplane for mobile
+
+*create a piano for mobile
+
+*create a arkanoid with tactile buttons
+
+*in mode agent: open youtube and search Nirvana videos
+
 | | |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/3c93ac34-93e7-438c-8c14-f37b43ccabb2" width="300" alt="avion"> | <img src="https://github.com/user-attachments/assets/f15c1201-72ab-4e8a-b76f-d34232688be7" width="300" alt="plano"> |
+| <img src="https://github.com/user-attachments/assets/3c93ac34-93e7-438c-8c14-f37b43ccabb2" width="300" alt="avion"> | <img src="https://github.com/user-attachments/assets/beb859cc-bf43-4861-ad6a-e8254adeb0b8" width="300" alt="piano"> |
 | <img src="https://github.com/user-attachments/assets/06667fcb-43b4-4098-839f-09383ce8aeb4" width="300" alt="arckanoid"> | <img src="https://github.com/user-attachments/assets/bca05911-68cf-4a70-be84-abc4e4fa1b23" width="300" alt="nirvana"> |
+
+![piano](https://github.com/user-attachments/assets/beb859cc-bf43-4861-ad6a-e8254adeb0b8)
 
 
 ---
@@ -126,9 +146,9 @@ The heart of **acornix** is organized for scalability:
 ```text
 acornix/
 ├── 🧠 main.py           # The Kernel: Entry point & process manager
-├── 🛠 core/             # The Brain: Neural logic and prompt engineering
+├── 🛠 core/              # The Brain: Neural logic and prompt engineering
 ├── 🔌 plugins/          # The Limbs: Modular extensions for the system
 ├── 📦 my_apps/          # The Vault: AI-generated projects & assets
-└── ⚙️ .env              # The DNA: Secure credentials and API keys
+└── ⚙️ config.json       # The DNA: Secure credentials and API keys
 ```
 Gonzalo Román Márquez
