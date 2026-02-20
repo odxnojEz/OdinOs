@@ -63,7 +63,7 @@ def main_menu():
         ],
         "🗂️ APPs MANAGEMENT": [
             "APPs Manager",
-            "Visual List",
+            "Visual Launcher",
             "Delete Apps",
             "Smart Import-Export Hub"
         ],
