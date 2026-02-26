@@ -98,15 +98,10 @@ You can create whatever you want and share it with whoever you want. The system 
 
 <br />
 
-
-
-
-https://github.com/user-attachments/assets/1e701c97-90d0-450a-881e-680bba5aad70
-
-
-
+[Watch acornixOS Video Demo](https://github.com/user-attachments/assets/1e701c97-90d0-450a-881e-680bba5aad70)
 
 <br />
+
 
 
 ### 📸 Showcase
