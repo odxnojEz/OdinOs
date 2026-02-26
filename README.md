@@ -6,9 +6,7 @@
 
 ---
 
-
-  <video align="center" src="https://github.com/user-attachments/assets/5c12029a-2aed-4e9f-90ef-2feb5fdfcc4f" width="80%" controls></video>
-
+[Watch acornix create app Video DEMO](https://github.com/user-attachments/assets/5c12029a-2aed-4e9f-90ef-2feb5fdfcc4f)
 
 
 
