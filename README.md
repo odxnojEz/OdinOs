@@ -7,11 +7,10 @@
 ---
 
 
+  <video align="center" src="https://github.com/user-attachments/assets/5c12029a-2aed-4e9f-90ef-2feb5fdfcc4f" width="80%" controls></video>
 
 
-<div align="center">
-  <video src="https://github.com/user-attachments/assets/d38be77a-21ba-425e-a328-b9d813e414e6" width="80%" controls></video>
-</div>
+
 
 ---
 
@@ -77,9 +76,9 @@ python -m http.server 8080
 
 # 🌳 acornix: The AI-Powered OS for Termux
 > "Transform your mobile terminal into a neural development hub."
-<div align="center">
+<p align="center">
 <img width="401" alt="Captura de pantalla 2026-02-12 113642" src="https://github.com/user-attachments/assets/6f9498ca-f214-4751-a9da-d033bc5828ff" />
-</div>
+</p>
 
 
 **acornix** isn't just a script; it's a procedural engine designed to bridge the gap between AI intelligence and mobile hardware. It allows you to orchestrate complex applications, automate local environments, and extend your terminal capabilities using natural language.
@@ -93,11 +92,22 @@ You can create games, applications, or in agent mode, ask it to control your pho
 You can create whatever you want and share it with whoever you want. The system has a simple tool for exporting and importing creations, apps, etc.
 # 🌳 acornixOS: The AI-Powered 
 > "Transform your mobile in a PC." Press and hold an app to add it to the dock.
-<div align="center">
+<p align="center">
 <img src="https://github.com/user-attachments/assets/c9f7bddf-83df-4872-b6dd-b313b4b6b688" width="400" alt="acornixOS">
-</div>
+</p>
 
 <br />
+
+
+
+
+https://github.com/user-attachments/assets/1e701c97-90d0-450a-881e-680bba5aad70
+
+
+
+
+<br />
+
 
 ### 📸 Showcase
 *Create a simple game 3d aeroplane for mobile
@@ -114,37 +124,37 @@ You can create whatever you want and share it with whoever you want. The system 
 | <img src="https://github.com/user-attachments/assets/06667fcb-43b4-4098-839f-09383ce8aeb4" width="300" alt="arckanoid"> | <img src="https://github.com/user-attachments/assets/bca05911-68cf-4a70-be84-abc4e4fa1b23" width="300" alt="nirvana"> |
 
 
-<div align="center">
+<p align="center">
 <br> OPTION 1: Create APP <br>
   Create an app that is a canvas for painting with your fingers on a mobile device, with color selection, brush size, and the option to erase the canvas:<br>
 <img width="401" alt="Paint" src="https://github.com/user-attachments/assets/555b114a-4acd-426c-a6ef-12f40dc9c9cd" />
-</div>
-<div align="center">
+</p>
+<p align="center">
  <br> OPTION 1: Create APP <br>
   Create a castle defense game for mobile screens, where enemies attack and I can shoot with a cannon to eliminate them. The difficulty should increase as I progress, and I should receive more powerful weapons:<br>
 <img width="401" alt="Castle" src="https://github.com/user-attachments/assets/19197abb-aafe-465d-bef1-dfe519fec31a" />
-</div>
-<div align="center">
+</p>
+<p align="center">
   <br> OPTION 2: Create FUNCTIONALITY <br>
   Create a plugin or functionality that displays all the applications created in the my_apps folder. The style should be similar to how applications are displayed on a mobile phone:<br>
 <img width="401" alt="Library" src="https://github.com/user-attachments/assets/d78448f8-beba-4116-9162-9c5210492109" />
-</div>
-<div align="center">
+</p>
+<p align="center">
   <br> OPTION 1: Create APP <br>
   Create a solar system simulator that shows how the planets move. Make it mobile so I can control it with my fingers:<br>
 <img width="401" alt="Solar sytem" src="https://github.com/user-attachments/assets/e3073cf5-1e1b-4a96-b82e-4d56a63c6a3a" />
-</div>
-<div align="center">
+</p>
+<p align="center">
   <br> OPTION 1: Create APP <br>
   Create a game similar to Flappy Bird for mobile phones:<br>
 <img width="401" alt="Flappy bird" src="https://github.com/user-attachments/assets/c1fc7e28-f295-4977-bdfe-77dc7d0fbbd6" />
-</div>
+</p>
 
-<div align="center">
+<p align="center">
   <br> OPTION 2: Create FUNCTIONALITY <br>
   Create a plugin or feature that displays a MacOS-based operating system, where I can control everything in Acornix, and where applications and plugins are displayed. Windows should be moved with my fingers; if I touch a window, it moves on top of the others. If I hold down an application, it is added to the dock. The terminal must communicate with the Termux terminal and must execute real commands, not simulate them:<br>
 <img width="401" alt="AcornixOS" src="https://github.com/user-attachments/assets/c9f7bddf-83df-4872-b6dd-b313b4b6b688" />
-</div>
+</p>
 
 
 
